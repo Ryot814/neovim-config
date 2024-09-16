@@ -1,0 +1,10 @@
+# plugin directory
+/plugin/
+
+# automatically generated files
+*.log
+*.swp
+*~
+
+# generated files about lazy.nvim
+/lazy-lock.json
