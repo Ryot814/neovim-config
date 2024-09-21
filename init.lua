@@ -17,5 +17,3 @@ require('config.options')
 -- plugin settings
 require("lazy").setup("plugins")
 
--- keymap
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {silent=true})
