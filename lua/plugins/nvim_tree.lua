@@ -43,6 +43,9 @@ return {
         local api = require('nvim-tree.api')
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
+        -- Map 'o' key to open a file or directory
+        vim.keymap.set('n', 'o', api.node.open.edit, opts)
+
         -- Map 'u' key to move to the parent directory in the tree
         vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts)
       end
