@@ -35,10 +35,3 @@ opt.shiftwidth = 2
 opt.relativenumber = true
 opt.termguicolors = true
 
--- Key mapping settings
-local keymap = vim.keymap.set
-keymap('n', '<C-j>', '<esc>', { noremap = true, silent = true })      -- In normal mode, Ctrl+j acts as escape
-keymap('i', '<C-j>', '<esc>', { noremap = true, silent = true })      -- In insert mode, Ctrl+j acts as escape
-keymap('n', '<S-Tab>', '<<', { noremap = true, silent = true })       -- In normal mode, Shift+Tab un-indents
-keymap('i', '<S-Tab>', '<C-D>', { noremap = true, silent = true })    -- In insert mode, Shift+Tab un-indents
-keymap('v', '<S-Tab>', '<', { noremap = true, silent = true })        -- In visual mode, Shift+Tab un-indents

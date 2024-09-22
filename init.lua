@@ -11,8 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- read basic settings
-require('config.options')
+-- Load options
+require("config.options") -- Load general options
+require("config.keymaps") -- Load custom key mappings
+require("config.autocmds") -- Load autocommands
 
 -- plugin settings
 require("lazy").setup("plugins")
