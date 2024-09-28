@@ -6,6 +6,13 @@ keymap('n', '<S-Tab>', '<<', { noremap = true, silent = true })       -- In norm
 keymap('i', '<S-Tab>', '<C-D>', { noremap = true, silent = true })    -- In insert mode, Shift+Tab un-indents
 keymap('v', '<S-Tab>', '<', { noremap = true, silent = true })        -- In visual mode, Shift+Tab un-indents
 
+keymap('n', 'tt', '<cmd>terminal<CR>', { noremap = true, silent = true }) -- In normal mode, 'tt' opens a terminal
+keymap('n', 'tx', '<cmd>belowright new<CR><cmd>terminal<CR>', { noremap = true, silent = true }) -- In normal mode, 'tx' opens a new terminal window below the current one
+
+--keymap('t', '<ESC>', '<C-\\><C-n>')
+keymap('t', '<C-j>', '<C-\\><C-n>', { noremap = true, silent = true }) -- In terminal mode, Ctrl+j acts as escape
+
+
 -- chatGPT example settings
 --[[
 
