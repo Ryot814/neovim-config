@@ -1,28 +1,18 @@
--- chatGPT example settings
---[[
-
--- Automatically format when saving a file
-vim.api.nvim_create_autocmd("BufWritePre", {
+-- Automatically enter insert mode when opening a terminal
+vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
-    callback = function()
-        vim.lsp.buf.format() -- Format the buffer before saving
-    end,
+    command = "startinsert"
 })
 
--- Highlight text on yank (when copying)
-vim.api.nvim_create_autocmd("TextYankPost", {
+-- Disable relative line numbers in terminal mode
+vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
-    callback = function()
-        vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 } -- Highlight text when you copy it
-    end,
+    command = "setlocal norelativenumber"
 })
 
--- Automatically set line numbers for certain file types
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"gitcommit", "markdown"},
-    callback = function()
-        vim.opt_local.number = false -- Disable line numbers for git commits and markdown
-    end,
+-- Disable absolute line numbers in terminal mode
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    command = "setlocal nonumber"
 })
 
---]]
