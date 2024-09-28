@@ -37,7 +37,7 @@ return {
         },
       },
       filters = {
-        dotfiles = true,  -- Hide dotfiles by default
+        dotfiles = false,  -- Hide dotfiles by default
       },
       on_attach = function(bufnr)
         local api = require('nvim-tree.api')
