@@ -35,3 +35,5 @@ opt.shiftwidth = 2
 opt.relativenumber = true
 opt.termguicolors = true
 
+-- Use system clipboard for yank, delete, change and put
+opt.clipboard:append("unnamedplus")
