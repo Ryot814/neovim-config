@@ -12,6 +12,9 @@ keymap('n', 'tx', '<cmd>belowright new<CR><cmd>terminal<CR>', { noremap = true, 
 --keymap('t', '<ESC>', '<C-\\><C-n>')
 keymap('t', '<C-j>', '<C-\\><C-n>', { noremap = true, silent = true }) -- In terminal mode, Ctrl+j acts as escape
 
+local apikeymap = vim.api.nvim_set_keymap
+apikeymap('n', '<Tab>', '>>', { noremap = true, silent = true})       -- In normal mode, Tab acts an indent
+
 
 -- chatGPT example settings
 --[[
