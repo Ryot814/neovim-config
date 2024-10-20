@@ -15,12 +15,12 @@ keymap('t', '<C-j>', '<C-\\><C-n>', { noremap = true, silent = true }) -- In ter
 local apikeymap = vim.api.nvim_set_keymap
 apikeymap('n', '<Tab>', '>>', { noremap = true, silent = true})       -- In normal mode, Tab acts an indent
 
+-- Set the leader key to space
+vim.g.mapleader = " "
+
 
 -- chatGPT example settings
 --[[
-
--- Set the leader key to space
-vim.g.mapleader = " "
 
 -- Save file with <leader> + s
 vim.keymap.set("n", "<leader>s", ":w<CR>", { noremap = true, silent = true })
