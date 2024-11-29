@@ -13,7 +13,8 @@ keymap('n', 'tx', '<cmd>belowright new<CR><cmd>terminal<CR>', { noremap = true, 
 keymap('t', '<C-j>', '<C-\\><C-n>', { noremap = true, silent = true }) -- In terminal mode, Ctrl+j acts as escape
 
 local apikeymap = vim.api.nvim_set_keymap
-apikeymap('n', '<Tab>', '>>', { noremap = true, silent = true})       -- In normal mode, Tab acts an indent
+apikeymap('n', '<Tab>', '>>', { noremap = true, silent = true })       -- In normal mode, Tab acts an indent
+apikeymap('v', '<Tab>', '>gv', { noremap = true, silent = true })       -- In visual mode, Tab acts an indent
 
 -- Set the leader key to space
 vim.g.mapleader = " "
