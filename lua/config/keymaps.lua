@@ -16,6 +16,9 @@ local apikeymap = vim.api.nvim_set_keymap
 apikeymap('n', '<Tab>', '>>', { noremap = true, silent = true })       -- In normal mode, Tab acts an indent
 apikeymap('v', '<Tab>', '>gv', { noremap = true, silent = true })       -- In visual mode, Tab acts an indent
 
+apikeymap('n', '<C-h>', ':bprevious<CR>', { noremap = true, silent = true }) -- In normal mode, <C-h> moves to the previous buffer
+apikeymap('n', '<C-l>', ':bnext<CR>', { noremap = true, silent = true }) -- In normal mode, <C-l> moves to the next buffer
+
 -- Set the leader key to space
 vim.g.mapleader = " "
 
