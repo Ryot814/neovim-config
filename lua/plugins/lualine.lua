@@ -1,35 +1,28 @@
--- Function to count selected lines and characters
--- It also corresponds to Zenkaku
+-- Count selected lines and characters
 local function selectionCount()
-    local mode = vim.fn.mode()
-    local start_line, end_line, start_pos, end_pos
+  local mode = vim.fn.mode()
 
-    -- Only active in visual mode
-    if not (mode:find("[vV\22]") ~= nil) then return "" end
-    start_line = vim.fn.line("v")
-    end_line = vim.fn.line(".")
+  if not mode:find("[vV\22]") then
+    return ""
+  end
 
-    if mode == 'V' then
-        -- In line-wise visual mode, count entire lines
-        start_pos = 1
-        end_pos = vim.fn.strlen(vim.fn.getline(end_line)) + 1
-    else
-        start_pos = vim.fn.col("v")
-        end_pos = vim.fn.col(".")
-    end
+  local region = vim.fn.getregion(
+    vim.fn.getpos("v"),
+    vim.fn.getpos("."),
+    { type = mode }
+  )
 
-    -- Count characters in selection
-    local chars = 0
-    for i = start_line, end_line do
-        local line = vim.fn.getline(i)
-        local line_len = vim.fn.strlen(line)
-        local s_pos = (i == start_line) and start_pos or 1
-        local e_pos = (i == end_line) and end_pos or line_len + 1
-        chars = chars + vim.fn.strchars(line:sub(s_pos, e_pos - 1))
-    end
+  local chars = 0
 
-    local lines = math.abs(end_line - start_line) + 1
-    return tostring(lines) .. " lines, " .. tostring(chars) .. " characters"
+  for _, line in ipairs(region) do
+    chars = chars + vim.fn.strchars(line)
+  end
+
+  return string.format(
+    "%d lines, %d characters",
+    #region,
+    chars
+  )
 end
 
 return {
